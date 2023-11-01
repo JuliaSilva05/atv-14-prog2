@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int tamanho;
+  printf("Digite o tamanho do vetor: ");
+  scanf("%d",&tamanho);
+  
+  int *array = malloc(tamanho);
+  printf("Digite %d números\n",tamanho);
+  for (int i = 0; i < tamanho; i++){
+    scanf("%d", &array[i]);
+  }
+  printf("Vetor Digitado: ");
+  for (int i = 0; i < tamanho; i++){
+    printf("%d, ", array[i]);
+  }
+
+  free(array);
+  array = NULL;
+
+  return 0;
+}
