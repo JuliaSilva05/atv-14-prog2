@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+  int i = 1;
+  int j = 0;
+  int *array = malloc(10*sizeof(int));
+
+  printf("Digite números: \n");
+  while(i>=0){
+    scanf("%d", &i);
+    array[j] = i;
+    j++;
+  }
+  //tentando usar realloc
+  array = realloc(array, j*sizeof(int));
+  printf("Vetor digitado: \n");
+  for (int k = 0; k < j-1; k++){
+    printf("%d, ", array[k]);
+  }
+
+  free(array);
+  array = NULL;
+  
+  return 0;
+}
