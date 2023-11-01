@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int n,bytes;
+  printf("Digite o tamanho do vetor: ");
+  scanf("%d",&n);
+  printf("Digite quantos bytes serão alocados: ");
+  scanf("%d",&bytes);
+  int *array = calloc(n,bytes);
+  int opcoes = 0, i, j;
+while (opcoes < 3){
+    if (bytes%n==0){
+      printf("Pressione 1 para inserir um valor em uma determinada posição\n");
+      printf("Pressione 2 para consultar um valor contido em uma determinada posição\n");
+      scanf("%d",&opcoes);
+      if (opcoes==1){
+        printf("Diga a posição: ");
+        scanf("%d",&i);
+        printf("Diga o valor: ");
+        scanf("%d",&array[i]);
+      } else if (opcoes==2){
+        printf("Diga a posição que quer consultar: ");
+        scanf("%d",&i);
+        printf("O valor contido na posição %d é: %d\n",i,array[i]);
+      }
+      //tirar depois
+      
+    } else{
+      printf("O número de bytes precisa ser múltiplo do número do tamanho do vetor!");
+      break;
+    }
+  
+}
+  free(array);
+  array = NULL;
+
+  return 0;
+}
