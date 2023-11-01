@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  
+  printf("Digite o tamanho do vetor: ");
+  int n,X,count = 0;
+  scanf("%d",&n);
+  printf("Digite um número inteiro X: ");
+  scanf("%d",&X);
+  
+  int *array = malloc(n);
+  printf("Digite %d números\n",n);
+  for (int i = 0; i < n; i++){
+    scanf("%d", &array[i]);
+    if (array[i] % X == 0){
+      count++;
+    }
+  }
+  printf("Array Digitado: ");
+  for (int i = 0; i < n; i++){
+    printf("%d, ", array[i]);
+  }
+  printf("\nO vetor possui %d números divisíveis por %d",count,X);
+
+  free(array);
+  array = NULL;
+
+  return 0;
+}
