@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int n,bytes;
+  printf("Digite quantos bytes serão alocados: ");
+  scanf("%d",&bytes);
+  int *array = calloc(1500,bytes);
+  
+  int count_antes=0,count_depois=0;
+  for (int i = 0; i < 1500; i++){
+    if (array[i]==0){
+      count_antes++;
+    }
+  }
+  for (int i = 0; i < 1500; i++){
+    array[i] = i;
+  }
+  printf("O numero de zeros antes é: %d\n",count_antes);
+
+  printf("10 primeiros: \n"); 
+  for (int i = 0; i < 10; i++){
+    printf("%d, ",array[i]);
+  }
+  printf("\n10 últimos: \n"); 
+  
+  for (int i = 1490; i < 1500; i++){
+    printf("%d, ",array[i]);
+  }
+
+  for (int i = 0; i < 1500; i++){
+    if (array[i]==0){
+      count_depois++;
+    }
+  }
+
+  printf("\nO numero de zeros depois é: %d\n",count_depois);
+  
+  free(array);
+  array = NULL;
+
+  return 0;
+}
