@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+  printf("Diga a quantidade de linhas da matriz: ");
+  int row,column;
+  scanf("%d",&row);
+  printf("Diga a quantidade de colunas da matriz: ");
+  scanf("%d",&column);
+  int matriz[row][column];
+  int i,j;
+  int *array = (int *) malloc(row * column * sizeof(int));
+  printf("Digite os valores da matriz: \n");
+  for(i=0;i<row;i++){
+    for(j=0;j<column;j++){
+      printf("Linha %d, coluna %d: ",i+1,j+1);
+      scanf("%d",&matriz[i][j]);     
+    }
+  }
+  //visualizando a matriz 
+  printf("\nMatriz:\n");
+  for(i=0;i<row;i++){
+    for(j=0;j<column;j++){
+      printf("%d, ", matriz[i][j]);
+    }
+    printf("\n");
+  }
+
+
+  free(array);
+  array = NULL;
+
+  return 0;
+}
