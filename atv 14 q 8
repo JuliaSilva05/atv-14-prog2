@@ -5,16 +5,21 @@ int main(void) {
 
   int i = 1;
   int j = 0;
+  int N = 10;
   int *array = malloc(10*sizeof(int));
 
   printf("Digite números: \n");
-  while(i>=0){
+  while(i!=0){
     scanf("%d", &i);
     array[j] = i;
     j++;
+    if(j == N){
+      N = N*2;
+      array = realloc(array, N*sizeof(int));
+      
+    }
   }
-  //tentando usar realloc
-  array = realloc(array, j*sizeof(int));
+
   printf("Vetor digitado: \n");
   for (int k = 0; k < j-1; k++){
     printf("%d, ", array[k]);
@@ -22,6 +27,6 @@ int main(void) {
 
   free(array);
   array = NULL;
-  
+
   return 0;
 }
